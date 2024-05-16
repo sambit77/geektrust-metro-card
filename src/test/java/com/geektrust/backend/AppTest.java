@@ -12,7 +12,11 @@ class AppTest {
         // Arrange
         // Act   
         // Assert
+        System.out.println("Hello tests");
         Assertions.assertTrue(true);
     }
 
 }
+
+
+
