@@ -2,7 +2,7 @@
 
 ## Language Used : Java, Gradle
 
-### URL [Geektrust Backend Challenge]
+### @Author: [Sambit Pradhan](https://www.linkedin.com/in/sambit77/)
 
 #### Pre-requisites
 * Java 1.8/1.11/1.15
