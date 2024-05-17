@@ -1,14 +1,14 @@
-#Solution to Geektrust Backend Challenge - Metro Card 
+# [Solution to Geektrust Backend Challenge - Metro Card]((https://www.geektrust.com/coding/detailed/metro-card)
 
 ## Language Used : Java, Gradle
 
-### URL `https://www.geektrust.com/coding/detailed/metro-card`
+### URL [Geektrust Backend Challenge]
 
-# Pre-requisites
+#### Pre-requisites
 * Java 1.8/1.11/1.15
 * Gradle 6
 
-# How to run the code
+#### How to run the code
 Use `run.sh` if you are Linux/Unix/macOS Operating systems and `run.bat` if you are on Windows.
 
 Internally both the scripts run the following commands 
@@ -25,9 +25,8 @@ Internally both the scripts run the following commands
 ```
 in the build.gradle if your main class has changed.
 
- # How to execute the unit tests
+ #### How to execute the unit tests
 
  `gradle clean test --no-daemon` will execute the unit test cases.
 
-# Help
 
