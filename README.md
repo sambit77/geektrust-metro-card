@@ -1,4 +1,4 @@
-# [Solution to Geektrust Backend Challenge - Metro Card]((https://www.geektrust.com/coding/detailed/metro-card)
+# [Solution to Geektrust Backend Challenge - Metro Card](https://www.geektrust.com/coding/detailed/metro-card)
 
 ## Language Used : Java, Gradle
 
