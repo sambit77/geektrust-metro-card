@@ -1,12 +1,14 @@
+#Solution to Geektrust Backend Challenge - Metro Card 
+
+## Language Used : Java, Gradle
+
+### URL `https://www.geektrust.com/coding/detailed/metro-card`
 
 # Pre-requisites
 * Java 1.8/1.11/1.15
 * Gradle 6
 
 # How to run the code
-
-We have provided scripts to execute the code. 
-
 Use `run.sh` if you are Linux/Unix/macOS Operating systems and `run.bat` if you are on Windows.
 
 Internally both the scripts run the following commands 
@@ -29,5 +31,3 @@ in the build.gradle if your main class has changed.
 
 # Help
 
-You can refer our help documents [here](https://help.geektrust.in)
-You can read build instructions [here](https://github.com/geektrust/coding-problem-artefacts/tree/master/Java)
