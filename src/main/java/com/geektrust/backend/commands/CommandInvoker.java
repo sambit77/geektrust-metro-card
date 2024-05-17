@@ -2,6 +2,10 @@ package com.geektrust.backend.commands;
 
 import java.util.*;
 
+import com.geektrust.backend.exceptions.CommandNotFoundException;
+
+
+
 public class CommandInvoker {
 
     private static final Map<String,ICommand> commandMap = new HashMap<>();
@@ -22,11 +26,20 @@ public class CommandInvoker {
 
         if(command == null)
         {
-            //throw exception
-            System.out.println("Command NNot Found");
+            try {
+               throw new CommandNotFoundException(commandName+" not found");
+            } catch (Exception e) {
+                // TODO: handle exception
+                e.printStackTrace();
+            }
+            
+        }
+        else
+        {
+            command.execute(tokens);
         }
 
-        command.execute(tokens);
+        
     }
 
 

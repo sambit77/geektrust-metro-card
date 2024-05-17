@@ -1,9 +1,8 @@
 package com.geektrust.backend.services;
 
-import java.util.Optional;
 
 import com.geektrust.backend.entities.Card;
-import com.geektrust.backend.repositories.CardRepository;
+import com.geektrust.backend.exceptions.CardNotFoundException;
 import com.geektrust.backend.repositories.ICardRepository;
 
 public class CardService implements ICardService {
@@ -21,14 +20,10 @@ public class CardService implements ICardService {
         return id;
     }
 
-    public Card getCardById(String id) throws Exception
+    public Card getCardById(String id) throws CardNotFoundException
     {
-        final Card card = cardRepository.findById(id).orElseThrow(() -> new Exception());
-        
+        final Card card = cardRepository.findById(id).orElseThrow(() -> new CardNotFoundException(id+" does not exits in Card Repository"));
         return card;
     }
-
-    
-
-    
+ 
 }

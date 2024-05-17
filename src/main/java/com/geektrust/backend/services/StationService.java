@@ -4,11 +4,9 @@ import com.geektrust.backend.entities.BaseStation;
 import com.geektrust.backend.entities.Card;
 import com.geektrust.backend.entities.PassengerType;
 import com.geektrust.backend.repositories.ICardRepository;
-
 import java.util.*;
 
 public class StationService implements IStationService{
-
 
     private final ICardRepository cardRepository;
 
@@ -23,9 +21,10 @@ public class StationService implements IStationService{
 
         HashMap<String,Integer> passengerCountByTypeMap = station.getPassengerCountByTypeMap();
 
+        /*Comput the cost of the journey */
+
         int cost = passengerType.getCost();
         int discount = 0;
-
         if(card.isSecondJourney())
         {
             discount = cost / 2;
@@ -50,6 +49,7 @@ public class StationService implements IStationService{
             cost = cost + service_charge;
             card_balance = 0;
         }
+
         card.setBalance(card_balance);
         cardRepository.save(card);
 
@@ -62,8 +62,7 @@ public class StationService implements IStationService{
         station.setTotal_collection(total_collection);
         station.setTotal_discount(total_discount);
 
-        //populate passenger counts
-
+        //populate passenger counts by passenger type
         String passengerKey = "";
 
         if(PassengerType.ADULT == passengerType)
@@ -86,6 +85,7 @@ public class StationService implements IStationService{
         station.setPassengerCountByTypeMap(passengerCountByTypeMap); 
     }
 
+    //Sort a hashmap by its value , if vlaue is equal for any entries sort their keys alphabetically 
     public HashMap<String,Integer> sortHashMap(HashMap<String,Integer> map)
     {
         List<Map.Entry<String, Integer> > list =
@@ -95,8 +95,6 @@ public class StationService implements IStationService{
             public int compare(Map.Entry<String, Integer> o1, 
                                Map.Entry<String, Integer> o2)
             {
-                //return (o1.getValue()).compareTo(o2.getValue());
-
                 if(o1.getValue() < o2.getValue())
                 {
                     return 1;
@@ -126,6 +124,7 @@ public class StationService implements IStationService{
         return temp;
     }
 
+    //Prints summary (Total collection , discount and passenger count)
     public void printSummary(BaseStation station)
     {
         HashMap<String,Integer> sortedPassengerCountByType = sortHashMap(station.getPassengerCountByTypeMap());
@@ -133,7 +132,7 @@ public class StationService implements IStationService{
         int travel_charges = station.getTotal_collection();
         int discount = station.getTotal_discount();
 
-        System.out.println("TOTAL COLLECTION  "+station.getName()+" "+travel_charges+" "+discount);
+        System.out.println("TOTAL COLLECTION  "+name+" "+travel_charges+" "+discount);
         System.out.println("PASSENGER_TYPE_SUMMARY");
 
         for (Map.Entry<String, Integer> en : sortedPassengerCountByType.entrySet()) {

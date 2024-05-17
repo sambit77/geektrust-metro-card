@@ -14,8 +14,6 @@ public class App {
 
 	public static void main(String[] args) {
 		//System.out.println("Welcome to Geektrust Backend Challenge!");
-
-		 
         /*Sample code to read from file passed as command line argument*/
 		List<String> inputCommands = new ArrayList<String>();
         try {
@@ -36,6 +34,7 @@ public class App {
         
 	}
 
+	//respective comannds are invoked by command invoker
 	public static void run(List<String> inputsCommands)
 	{
 		ApplicationConfig applicationConfig = new ApplicationConfig();

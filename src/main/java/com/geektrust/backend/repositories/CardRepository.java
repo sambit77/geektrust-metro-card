@@ -1,8 +1,5 @@
 package com.geektrust.backend.repositories;
 
-import java.util.List;
-import java.util.Optional;
-
 import com.geektrust.backend.entities.Card;
 import java.util.*;
 
@@ -25,7 +22,14 @@ public class CardRepository implements ICardRepository{
     @Override
     public List<Card> findAll() {
         // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'findAll'");
+       List<Card> allCards = new ArrayList<Card>();
+
+       for(String key : cardMap.keySet())
+       {
+        allCards.add(cardMap.get(key));
+       }
+
+       return allCards;
     }
 
     @Override
@@ -50,19 +54,19 @@ public class CardRepository implements ICardRepository{
     @Override
     public void delete(Card entity) {
         // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'delete'");
+       cardMap.remove(entity);
     }
 
     @Override
     public void deleteById(String id) {
         // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'deleteById'");
+        cardMap.remove(id);
     }
 
     @Override
     public long count() {
         // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'count'");
+        return cardMap.size();
     }
     
 }
