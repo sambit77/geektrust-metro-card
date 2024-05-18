@@ -20,19 +20,14 @@ public class CommandInvoker {
         return commandMap.get(commandName);
     }
 
-    public void executeCommand(String commandName,List<String> tokens)
+    public void executeCommand(String commandName,List<String> tokens) throws CommandNotFoundException
     {
         ICommand command = getCommand(commandName);
 
         if(command == null)
         {
-            try {
                throw new CommandNotFoundException(commandName+" not found");
-            } catch (Exception e) {
-                // TODO: handle exception
-                e.printStackTrace();
-            }
-            
+
         }
         else
         {

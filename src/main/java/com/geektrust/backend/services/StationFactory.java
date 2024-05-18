@@ -17,5 +17,11 @@ public class StationFactory {
             return CentralStation.getCentralstation();
         }
     }
+
+    public static void destroyAllStation()
+    {
+        AirportStation.destroy();
+        CentralStation.destroy();
+    }
     
 }

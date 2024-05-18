@@ -21,7 +21,7 @@ public class CheckInCommand implements ICommand {
     }
     @Override
     public void execute(List<String> tokens) {
-        // TODO Auto-generated method stub
+        
 
         String cardId = tokens.get(1);
         String passenger = tokens.get(2);
@@ -32,7 +32,7 @@ public class CheckInCommand implements ICommand {
         try {
             card = cardService.getCardById(cardId);
         } catch (Exception e) {
-            // TODO Auto-generated catch block
+            
             e.printStackTrace();
         }
 

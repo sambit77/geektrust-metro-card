@@ -18,10 +18,9 @@ public class PrintSummaryCommand implements ICommand{
 
     @Override
     public void execute(List<String> tokens) {
-        // TODO Auto-generated method stub
+        
         BaseStation central = StationFactory.getStationEntity("CENTRAL");
         BaseStation airport = StationFactory.getStationEntity("AIRPORT");
-
         stationService.printSummary(central);
         stationService.printSummary(airport);
 

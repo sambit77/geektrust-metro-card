@@ -53,6 +53,11 @@ public class CentralStation implements BaseStation{
         }
         return centralStation;
     }
+
+    public static void destroy()
+    {
+        centralStation = null;
+    }
   
     
 }

@@ -13,6 +13,7 @@ import com.geektrust.backend.services.StationService;
 
 public class ApplicationConfig {
     
+    //Initialize repository,service and command layer & inject appropriate dependencies 
     private final ICardRepository cardRepository = new CardRepository();
 
     private final ICardService cardService = new CardService(cardRepository);
@@ -32,6 +33,5 @@ public class ApplicationConfig {
 
         return commandInvoker;
     }
-
 
 }

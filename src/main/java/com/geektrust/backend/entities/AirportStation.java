@@ -16,11 +16,6 @@ public class AirportStation implements BaseStation {
         passengerCountByTypeMap.put("SENIOR_CITIZEN", 0);
     }
 
-    
-
-    
-
-
     public HashMap<String, Integer> getPassengerCountByTypeMap() {
         return passengerCountByTypeMap;
     }
@@ -56,6 +51,11 @@ public class AirportStation implements BaseStation {
             airportStation = new AirportStation();
         }
         return airportStation;
+    }
+
+    public static void destroy()
+    {
+        airportStation = null;
     }
 
     

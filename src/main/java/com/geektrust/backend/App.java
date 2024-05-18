@@ -9,10 +9,11 @@ import java.util.Scanner;
 
 import com.geektrust.backend.appConfig.ApplicationConfig;
 import com.geektrust.backend.commands.CommandInvoker;
+import com.geektrust.backend.exceptions.CommandNotFoundException;
 
 public class App {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws CommandNotFoundException {
 		//System.out.println("Welcome to Geektrust Backend Challenge!");
         /*Sample code to read from file passed as command line argument*/
 		List<String> inputCommands = new ArrayList<String>();
@@ -35,7 +36,7 @@ public class App {
 	}
 
 	//respective comannds are invoked by command invoker
-	public static void run(List<String> inputsCommands)
+	public static void run(List<String> inputsCommands) throws CommandNotFoundException
 	{
 		ApplicationConfig applicationConfig = new ApplicationConfig();
 		CommandInvoker commandInvoker = applicationConfig.getCommandInvoker();

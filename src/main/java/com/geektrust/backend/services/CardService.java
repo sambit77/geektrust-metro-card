@@ -13,11 +13,11 @@ public class CardService implements ICardService {
         this.cardRepository = cardRepository;
     }
 
-    public String createCard(String id,int balance)
+    public Card createCard(String id,int balance)
     {
         Card card = new Card(id,balance);
         cardRepository.save(card);
-        return id;
+        return card;
     }
 
     public Card getCardById(String id) throws CardNotFoundException

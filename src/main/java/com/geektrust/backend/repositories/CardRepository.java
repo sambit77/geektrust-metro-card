@@ -12,16 +12,21 @@ public class CardRepository implements ICardRepository{
         cardMap = new HashMap<String,Card>();
     }
 
+    public CardRepository(HashMap<String,Card> cardMap)
+    {
+        this.cardMap = cardMap;
+    }
+
     @Override
     public Card save(Card entity) {
-        // TODO Auto-generated method stub
+    
         cardMap.put(entity.getId(), entity);
         return entity;
     }
 
     @Override
     public List<Card> findAll() {
-        // TODO Auto-generated method stub
+        
        List<Card> allCards = new ArrayList<Card>();
 
        for(String key : cardMap.keySet())
@@ -34,13 +39,13 @@ public class CardRepository implements ICardRepository{
 
     @Override
     public Optional<Card> findById(String id) {
-        // TODO Auto-generated method stub
+        
        return Optional.ofNullable(cardMap.get(id));
     }
 
     @Override
     public boolean existsById(String id) {
-        // TODO Auto-generated method stub
+       
         boolean isExists = false;
 
         if(cardMap.containsKey(id))
@@ -53,19 +58,19 @@ public class CardRepository implements ICardRepository{
 
     @Override
     public void delete(Card entity) {
-        // TODO Auto-generated method stub
-       cardMap.remove(entity);
+        
+       //cardMap.remove(entity);
     }
 
     @Override
     public void deleteById(String id) {
-        // TODO Auto-generated method stub
+       
         cardMap.remove(id);
     }
 
     @Override
     public long count() {
-        // TODO Auto-generated method stub
+       
         return cardMap.size();
     }
     

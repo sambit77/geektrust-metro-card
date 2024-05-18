@@ -17,7 +17,7 @@ public class StationService implements IStationService{
 
     @Override
     public void checkIn(Card card, PassengerType passengerType, BaseStation station) {
-        // TODO Auto-generated method stub
+       
 
         HashMap<String,Integer> passengerCountByTypeMap = station.getPassengerCountByTypeMap();
 
