@@ -24,7 +24,6 @@ public class PrintSummaryCommand implements ICommand{
         stationService.printSummary(central);
         stationService.printSummary(airport);
 
-        
     }
     
 }

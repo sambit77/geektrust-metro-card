@@ -46,7 +46,6 @@ public class StationService implements IStationService{
             card_balance = 0;
         }
 
-        
         card.setBalance(card_balance);
         cardRepository.save(card);
 
