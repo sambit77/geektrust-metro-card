@@ -7,7 +7,6 @@ import com.geektrust.backend.repositories.ICardRepository;
 import java.util.*;
 
 public class StationService implements IStationService{
-
     private final ICardRepository cardRepository;
 
     public StationService(ICardRepository cardRepository)
@@ -17,10 +16,6 @@ public class StationService implements IStationService{
 
     @Override
     public void checkIn(Card card, PassengerType passengerType, BaseStation station) {
-       
-
-        HashMap<String,Integer> passengerCountByTypeMap = station.getPassengerCountByTypeMap();
-
         /*Comput the cost of the journey */
 
         int cost = passengerType.getCost();
@@ -36,6 +31,7 @@ public class StationService implements IStationService{
             card.setSecondJourney(true);
         }
 
+        
         int card_balance = card.getBalance();
 
         if(card_balance >= cost)
@@ -50,19 +46,21 @@ public class StationService implements IStationService{
             card_balance = 0;
         }
 
+        
         card.setBalance(card_balance);
         cardRepository.save(card);
 
-        int  total_collection = station.getTotal_collection();
-        int total_discount = station.getTotal_discount();
-
-        total_collection = total_collection + cost;
-        total_discount = total_discount + discount;
-
-        station.setTotal_collection(total_collection);
-        station.setTotal_discount(total_discount);
+        station.setTotal_collection( station.getTotal_collection()+cost);
+        station.setTotal_discount(station.getTotal_discount()+discount);
 
         //populate passenger counts by passenger type
+        populatePassengerCountForTheStation(station,passengerType);
+        
+    }
+
+    private void populatePassengerCountForTheStation(BaseStation station, PassengerType passengerType) {
+        // TODO Auto-generated method stub
+        HashMap<String,Integer> passengerCountByTypeMap = station.getPassengerCountByTypeMap();
         String passengerKey = "";
 
         if(PassengerType.ADULT == passengerType)
@@ -83,6 +81,12 @@ public class StationService implements IStationService{
         count++;
         passengerCountByTypeMap.put(passengerKey, count);
         station.setPassengerCountByTypeMap(passengerCountByTypeMap); 
+        
+    }
+
+    public int computeCostOfJourney()
+    {
+        return 0;
     }
 
     //Sort a hashmap by its value , if vlaue is equal for any entries sort their keys alphabetically 
