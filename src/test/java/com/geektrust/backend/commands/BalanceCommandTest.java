@@ -41,7 +41,6 @@ public class BalanceCommandTest {
         balanceCommandInput.add("MC1");
         balanceCommandInput.add("500");
         balanceCommand.execute(balanceCommandInput);
-
         //Assertions.assertEquals(card.getId(), newCardID);
         Mockito.verify(cardServiceMock,times(1)).createCard(anyString(), anyInt());
     }

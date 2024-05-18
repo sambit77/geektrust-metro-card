@@ -22,7 +22,6 @@ public class CheckInCommand implements ICommand {
     @Override
     public void execute(List<String> tokens) {
         
-
         String cardId = tokens.get(1);
         String passenger = tokens.get(2);
         String stationName = tokens.get(3);
